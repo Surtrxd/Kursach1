@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Добавить курс</h1>
+<form action="{{ url_for('courses.add_course') }}" method="POST">
+    <label for="title">Название:</label>
+    <input type="text" id="title" name="title" required>
+    
+    <label for="description">Описание:</label>
+    <textarea id="description" name="description" required></textarea>
+    
+    <button type="submit">Добавить</button>
+</form>
+<a href="{{ url_for('courses.get_courses') }}">Назад к списку курсов</a>
+{% endblock %}

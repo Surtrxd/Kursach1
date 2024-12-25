@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Материалы для курса: {{ course.title }}</h1>
+<p>{{ course.description }}</p>
+<ul>
+    {% for material in materials %}
+    <li>
+        <h2>{{ material.title }}</h2>
+        <p>{{ material.content }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('materials.add_material_page', course_id=course.id) }}">Добавить материал</a>
+<a href="{{ url_for('courses.get_courses') }}">Назад к курсам</a>
+{% endblock %}

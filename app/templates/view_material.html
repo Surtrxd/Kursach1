@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ material.title }}</title>
+</head>
+<body>
+    <h1>{{ material.title }}</h1>
+    <div>
+        {{ material.content | safe }}
+    </div>
+    <a href="{{ url_for('main.materials') }}">Назад</a>
+</body>
+</html>

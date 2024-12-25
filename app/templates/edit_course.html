@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Редактировать курс</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<form action="{{ url_for('courses.edit_course', course_id=course.id) }}" method="POST">
+
+    <label for="title">Название курса:</label>
+    <input 
+        type="text" 
+        id="title" 
+        name="title" 
+        value="{{ course.title }}" 
+        required 
+        placeholder="Введите название курса">
+
+    <label for="description">Описание курса:</label>
+    <textarea 
+        id="description" 
+        name="description" 
+        required 
+        placeholder="Введите описание">{{ course.description }}</textarea>
+    
+    <button type="submit">Сохранить изменения</button>
+</form>
+
+<a href="{{ url_for('courses.get_courses') }}">Назад к списку курсов</a>
+
+{% endblock %}
